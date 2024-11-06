@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 목록</title>
+</head>
+<body>
+    <h1>게시글 목록</h1>
+    <a href="{{ url_for('create') }}">새 글 작성</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{{ url_for('post', id=post['id']) }}">{{ post['title'] }}</a> 
+                - 작성일: {{ post['created_at'] }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">홈으로 돌아가기</a>
+</body>
+</html>
